@@ -1,4 +1,21 @@
 <app-header></app-header>
-<app-sidebar></app-sidebar>
-<app-content></app-content>
+
+<div class="container">
+    
+    <div class="columns">
+        
+        <!-- sider bar 1/4 = 3 (12 / 4 = 3) -->
+        <div class="column is-one-quarter">
+            <app-sidebar></app-sidebar>
+        </div>
+        
+        <!-- content auth 12 - 3 = 9 -->
+        <div class="column">
+            <app-content></app-content>
+        </div>
+        
+    </div>
+    
+</div>
+
 <app-footer></app-footer>
