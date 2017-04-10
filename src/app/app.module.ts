@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,6 +11,19 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { SubjectComponent } from './subject/subject.component';
 import { CommentComponent } from './comment/comment.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageHomeComponent } from './page-home/page-home.component';
+import { PageSchedulesComponent } from './page-schedules/page-schedules.component';
+import { PageTeachingPlanComponent } from './page-teaching-plan/page-teaching-plan.component';
+import { PageAboutComponent } from './page-about/page-about.component';
+
+const routes: Routes = [
+  { path: '', component: PageHomeComponent },
+  { path: 'schedules', component: PageSchedulesComponent },
+  { path: 'teaching-plan', component: PageTeachingPlanComponent },
+  { path: 'about', component: PageAboutComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -19,12 +33,18 @@ import { CommentComponent } from './comment/comment.component';
     ContentComponent,
     FooterComponent,
     SubjectComponent,
-    CommentComponent
+    CommentComponent,
+    PageNotFoundComponent,
+    PageHomeComponent,
+    PageSchedulesComponent,
+    PageTeachingPlanComponent,
+    PageAboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
