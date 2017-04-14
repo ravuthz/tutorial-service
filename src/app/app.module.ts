@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthService } from './auth.service';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -16,37 +18,48 @@ import { PageHomeComponent } from './page-home/page-home.component';
 import { PageSchedulesComponent } from './page-schedules/page-schedules.component';
 import { PageTeachingPlanComponent } from './page-teaching-plan/page-teaching-plan.component';
 import { PageAboutComponent } from './page-about/page-about.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: PageHomeComponent },
-  { path: 'schedules', component: PageSchedulesComponent },
-  { path: 'teaching-plan', component: PageTeachingPlanComponent },
-  { path: 'about', component: PageAboutComponent },
-  { path: '**', component: PageNotFoundComponent }
+    { path: '', component: PageHomeComponent },
+    { path: 'schedules', component: PageSchedulesComponent },
+    { path: 'teaching-plan', component: PageTeachingPlanComponent },
+    { path: 'about', component: PageAboutComponent },
+   
+    
+    { path: 'login', component: LoginComponent },
+    { path: 'dashboard', component: DashboardComponent },
+    
+     { path: '**', component: PageNotFoundComponent }
+    
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SidebarComponent,
-    ContentComponent,
-    FooterComponent,
-    SubjectComponent,
-    CommentComponent,
-    PageNotFoundComponent,
-    PageHomeComponent,
-    PageSchedulesComponent,
-    PageTeachingPlanComponent,
-    PageAboutComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(routes, { useHash: true })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        SidebarComponent,
+        ContentComponent,
+        FooterComponent,
+        SubjectComponent,
+        CommentComponent,
+        PageNotFoundComponent,
+        PageHomeComponent,
+        PageSchedulesComponent,
+        PageTeachingPlanComponent,
+        PageAboutComponent,
+        LoginComponent,
+        DashboardComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        RouterModule.forRoot(routes, { useHash: true })
+    ],
+    providers: [AuthService],
+    bootstrap: [AppComponent]
 })
+
 export class AppModule { }
