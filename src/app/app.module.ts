@@ -39,6 +39,7 @@ const routes: Routes = [
         AppComponent,
         HeaderComponent,
         SidebarComponent,
+
         FooterComponent,
         SubjectComponent,
         CommentComponent,
