@@ -30,13 +30,19 @@
             <a class="nav-item is-tab is-hidden-tablet" routerLink="/schedules" routerLinkActive="is-active">Schedules</a>
             <a class="nav-item is-tab is-hidden-tablet" routerLink="/teaching-plan" routerLinkActive="is-active">Teaching Plan</a>
             <a class="nav-item is-tab is-hidden-tablet" routerLink="/about" routerLinkActive="is-active">About</a>
-            <a class="nav-item is-tab">
-                <figure class="image is-16x16" style="margin-right: 8px;">
-                    <img src="http://bulma.io/images/jgthms.png">
-                </figure>
-                Profile
-            </a>
-            <a class="nav-item is-tab">Log out</a>
+            <div *ngIf="auth.isLoggedIn; then authorized else unauthorize"></div>
+            <ng-template #authorized>
+                <a class="nav-item is-tab">
+                    <figure class="image is-16x16" style="margin-right: 8px;">
+                        <img src="http://bulma.io/images/jgthms.png">
+                    </figure>
+                    Profile
+                </a>
+                <a (click)="logout()" class="nav-item is-tab">Logout</a>
+            </ng-template>
+            <ng-template #unauthorize>
+                <a routerLink="/login" class="nav-item is-tab">Login</a>
+            </ng-template>
         </div>
     </div>
 </nav>
